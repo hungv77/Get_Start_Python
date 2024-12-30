@@ -10,26 +10,36 @@ CODE_LENGTH = 4
 ##Match colors and places
 ##Just match colors
 
+# def generate_code():
+#     code = []
+#     for _ in range(CODE_LENGTH):
+#         color = random.choice(COLORS)
+#         code.append(color)
+#     return code
+
 def generate_code():
     code = []
     for _ in range(CODE_LENGTH):
         color = random.choice(COLORS)
         code.append(color)
-    return code
+    return code 
 
 def guess_code():
-    while True:   
+    while True:
+        #First, get the answer from the user
         guess = input("Guess: ").upper().split()
+        #Check the condition, about Length and the Color
         if len(guess) != CODE_LENGTH:
             print(f"You must guess {CODE_LENGTH} colors.")
             continue
         for color in guess:
             if color not in COLORS:
-                print(f"Invalid color: {color}. Try again.")
+                print(f"Nuh uh, {color} that's not the color on the list. Try again.")
                 break
-        else:
-            break
+        else: 
+            break 
     return guess
+        
 
 def check_code(guess, real_code):
     color_counts = {}
